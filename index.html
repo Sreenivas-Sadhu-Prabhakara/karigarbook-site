@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KarigarBook — Piece-rate pay, done right</title>
+  <meta name="description" content="KarigarBook is a piece-rate payout ledger for tailoring, embroidery and handicraft units. Log production per karigar, net out rejects and advances, and hand over a clean payout sheet. Rs 499/mo." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#hero">Skip to content</a>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="#hero" aria-label="KarigarBook home">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="28" height="28">
+            <rect width="64" height="64" rx="14" fill="#6D28D9"/>
+            <rect x="17" y="13" width="30" height="38" rx="3" fill="#F7F5F0"/>
+            <line x1="24" y1="15" x2="24" y2="49" stroke="#6D28D9" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 3"/>
+            <g stroke="#8B7FA8" stroke-width="2" stroke-linecap="round">
+              <line x1="29" y1="22" x2="42" y2="22"/><line x1="29" y1="29" x2="42" y2="29"/><line x1="29" y1="36" x2="42" y2="36"/>
+            </g>
+            <path d="M28 43.5 l3 3 l6 -7" fill="none" stroke="#E8B923" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="brand__word">KarigarBook</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#problem">Problem</a>
+        <a href="#how">How it works</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a class="nav__cta" href="#pricing">Start free trial</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ 1. HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow">For tailoring, embroidery &amp; handicraft units</p>
+          <h1 class="hero__title">Piece-rate pay,<br /><span class="hl">done right.</span></h1>
+          <p class="hero__lede">
+            Your karigars are paid per piece — but payout still runs on memory and a torn diary page,
+            and every rejected piece turns into an argument. KarigarBook logs each karigar's output
+            and hands you a clean payout, net of rejects and advances.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#pricing" data-mock>Start free trial</a>
+            <a class="btn btn--ghost" href="#how">See how it works</a>
+          </div>
+          <p class="hero__note">No app store, no training. Works on the phone already on your table.</p>
+        </div>
+
+        <!-- Hero signature: a live-tallying payout slip -->
+        <aside class="hero__slip" aria-label="Sample weekly payout slip">
+          <div class="slip">
+            <div class="slip__head">
+              <div>
+                <p class="slip__name">Rukmini Bai</p>
+                <p class="slip__meta">Hand embroidery · Bhiwandi unit</p>
+              </div>
+              <span class="slip__week">Week 28</span>
+            </div>
+            <ul class="slip__lines" id="slipLines">
+              <li class="slip__row" data-line>
+                <span class="slip__work">Blouse aari-work</span>
+                <span class="slip__calc">42 &minus; 3 &times; <b>Rs 85</b></span>
+                <span class="slip__amt" data-amount="3315">Rs&nbsp;0</span>
+              </li>
+              <li class="slip__row" data-line>
+                <span class="slip__work">Dupatta booti</span>
+                <span class="slip__calc">60 &minus; 1 &times; <b>Rs 40</b></span>
+                <span class="slip__amt" data-amount="2360">Rs&nbsp;0</span>
+              </li>
+              <li class="slip__row" data-line>
+                <span class="slip__work">Kurti neckline</span>
+                <span class="slip__calc">28 &minus; 0 &times; <b>Rs 55</b></span>
+                <span class="slip__amt" data-amount="1540">Rs&nbsp;0</span>
+              </li>
+              <li class="slip__row slip__row--sub" data-line>
+                <span class="slip__work">Advance taken (Tue)</span>
+                <span class="slip__calc">−</span>
+                <span class="slip__amt slip__amt--neg" data-amount="-1200">Rs&nbsp;0</span>
+              </li>
+            </ul>
+            <div class="slip__total">
+              <span>Net payable</span>
+              <span class="slip__grand" id="slipGrand">Rs&nbsp;0</span>
+            </div>
+            <p class="slip__hint" aria-hidden="true">Tallied live from this week's entries</p>
+          </div>
+        </aside>
+      </div>
+      <div class="seam" aria-hidden="true"></div>
+    </section>
+
+    <!-- ============ 2. THE PROBLEM ============ -->
+    <section class="section problem" id="problem">
+      <div class="wrap">
+        <p class="eyebrow eyebrow--center">The Monday-morning fight</p>
+        <h2 class="section__title">Today, payout is a memory test — and everyone loses.</h2>
+        <p class="section__lede center">
+          A unit owner running 8 to 40 karigars on piece rates keeps the whole week in three fragile places:
+          a WhatsApp group, a diary, and their own head. By payout day, none of them agree.
+        </p>
+        <div class="pain-grid">
+          <article class="pain">
+            <span class="pain__tag">WhatsApp</span>
+            <h3>"Bhaiya, I did 50, not 44"</h3>
+            <p>Counts are shouted across a group chat all week. Nobody adds them up until Saturday, and by then the messages have scrolled away.</p>
+          </article>
+          <article class="pain">
+            <span class="pain__tag">The diary</span>
+            <h3>Ink that doesn't net out</h3>
+            <p>The diary records pieces made, but not pieces rejected, and rarely the advance handed over on Tuesday. So the number in the book is never the number to pay.</p>
+          </article>
+          <article class="pain">
+            <span class="pain__tag">Memory</span>
+            <h3>Rejections become arguments</h3>
+            <p>Was it 3 rejects or 5? Who decides the rate for the new dupatta design? Without a record, every dispute is one person's word against another's.</p>
+          </article>
+        </div>
+        <p class="problem__punch">
+          One wrong payout doesn't just cost money — it costs a karigar who walks to the unit down the lane.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ 3. THE INSIGHT ============ -->
+    <section class="section insight" id="insight">
+      <div class="wrap insight__wrap">
+        <p class="eyebrow eyebrow--on-dark">The wedge</p>
+        <h2 class="insight__quote">
+          Piece rate is simple maths.<br />
+          <span class="insight__accent">The mess is that nobody logs the pieces.</span>
+        </h2>
+        <p class="insight__body">
+          Log production once — per karigar, per work type — and the payout computes itself:
+          <em>(quantity minus rejects) times the piece rate, minus advances.</em>
+          No new habits for the karigars, no accountant for the owner. Just the one number
+          that was always true, written down before the argument starts.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ 4. HOW IT WORKS ============ -->
+    <section class="section how" id="how">
+      <div class="wrap">
+        <p class="eyebrow eyebrow--center">How it works</p>
+        <h2 class="section__title">From bundle to payout, in four steps.</h2>
+        <ol class="steps">
+          <li class="step">
+            <span class="step__num">1</span>
+            <div class="step__body">
+              <h3>Set your rates once</h3>
+              <p>Add each work type — aari-work, booti, neckline, katori stitch — and the rate you pay per piece. Change it whenever a design changes.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__num">2</span>
+            <div class="step__body">
+              <h3>Log production as it comes in</h3>
+              <p>When a karigar hands over a bundle, tap in the quantity and any rejects. Ten seconds per entry, done at the table.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__num">3</span>
+            <div class="step__body">
+              <h3>Record advances the moment you give them</h3>
+              <p>Handed Rukmini Rs 1,200 on Tuesday? Note it against her name so it comes straight off Saturday's payout.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step__num">4</span>
+            <div class="step__body">
+              <h3>Print the payout sheet</h3>
+              <p>Weekly or monthly, KarigarBook hands you a per-karigar sheet with every line shown. Pay the net, no disputes.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ 5. FEATURES ============ -->
+    <section class="section features" id="features">
+      <div class="wrap">
+        <p class="eyebrow eyebrow--center">What's inside</p>
+        <h2 class="section__title">Everything the diary can't do.</h2>
+        <div class="feat-grid">
+          <article class="feat">
+            <div class="feat__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M4 12h16M4 19h10"/><circle cx="19" cy="19" r="2"/></svg>
+            </div>
+            <h3>Piece-rate ledger</h3>
+            <p>Every bundle logged per karigar, per work type — a permanent record instead of a scrolling chat.</p>
+          </article>
+          <article class="feat">
+            <div class="feat__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18 9 11l4 4 7-9"/><path d="M4 6v14h16"/></svg>
+            </div>
+            <h3>Auto payout maths</h3>
+            <p>Payout = sum of (qty − rejected) × rate, minus advances. The calculation you do wrong at 9pm, done right instantly.</p>
+          </article>
+          <article class="feat">
+            <div class="feat__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-3.3 3.6-5 8-5s8 1.7 8 5"/></svg>
+            </div>
+            <h3>Per-karigar output</h3>
+            <p>See who produced what over any period, so you know who to give the big order to next week.</p>
+          </article>
+          <article class="feat">
+            <div class="feat__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9v9z"/><path d="M12 3a9 9 0 0 1 9 9h-9z" opacity=".4"/></svg>
+            </div>
+            <h3>Rejection rate tracking</h3>
+            <p>A quiet quality report: which karigar and which work type send back the most rejects, in one glance.</p>
+          </article>
+          <article class="feat">
+            <div class="feat__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v16"/></svg>
+            </div>
+            <h3>Weekly / monthly payout sheet</h3>
+            <p>A clean, printable sheet per karigar — every line shown, so the net is never questioned.</p>
+          </article>
+          <article class="feat">
+            <div class="feat__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="5" width="3" height="13"/></svg>
+            </div>
+            <h3>Owner's dashboard</h3>
+            <p>This week's production value, your top karigars, and advances still outstanding — the whole unit on one screen.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. PRODUCT PREVIEW ============ -->
+    <section class="section preview" id="preview">
+      <div class="wrap">
+        <p class="eyebrow eyebrow--center">A look inside</p>
+        <h2 class="section__title">The whole unit, on one screen.</h2>
+        <p class="section__lede center">This is the owner's dashboard for a mid-size embroidery unit in Bhiwandi — real numbers, real names, Saturday morning.</p>
+
+        <div class="mock" role="img" aria-label="KarigarBook dashboard showing this week's production value of Rs 1,84,220, top karigars, advances outstanding, and a live production feed">
+          <div class="mock__chrome">
+            <span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span>
+            <span class="mock__url">karigarbook.app · Shubham Embroidery, Bhiwandi</span>
+          </div>
+          <div class="mock__body">
+            <div class="mock__topbar">
+              <div>
+                <p class="mock__hello">Namaste, Farhan bhai</p>
+                <p class="mock__sub">Week 28 · 14–20 Jul · 26 karigars active</p>
+              </div>
+              <span class="mock__chip">Payout day: Saturday</span>
+            </div>
+
+            <div class="mock__stats">
+              <div class="stat">
+                <p class="stat__label">This week's production value</p>
+                <p class="stat__big">Rs 1,84,220</p>
+                <p class="stat__delta stat__delta--up">▲ 12% vs last week</p>
+              </div>
+              <div class="stat">
+                <p class="stat__label">Advances outstanding</p>
+                <p class="stat__big">Rs 31,450</p>
+                <p class="stat__delta">across 9 karigars</p>
+              </div>
+              <div class="stat">
+                <p class="stat__label">Avg rejection rate</p>
+                <p class="stat__big">4.1%</p>
+                <p class="stat__delta stat__delta--up">▼ 0.8 pts</p>
+              </div>
+            </div>
+
+            <div class="mock__cols">
+              <div class="panel">
+                <div class="panel__head">
+                  <h4>Top karigars this week</h4>
+                  <span class="panel__link">View all 26</span>
+                </div>
+                <ul class="rank">
+                  <li class="rank__row">
+                    <span class="rank__pos">1</span>
+                    <span class="rank__who"><b>Rukmini Bai</b><em>Hand embroidery</em></span>
+                    <span class="rank__bar"><i style="width:100%"></i></span>
+                    <span class="rank__val">Rs 9,215</span>
+                  </li>
+                  <li class="rank__row">
+                    <span class="rank__pos">2</span>
+                    <span class="rank__who"><b>Imran Shaikh</b><em>Aari-work</em></span>
+                    <span class="rank__bar"><i style="width:86%"></i></span>
+                    <span class="rank__val">Rs 7,940</span>
+                  </li>
+                  <li class="rank__row">
+                    <span class="rank__pos">3</span>
+                    <span class="rank__who"><b>Lata Gaikwad</b><em>Booti &amp; sequins</em></span>
+                    <span class="rank__bar"><i style="width:74%"></i></span>
+                    <span class="rank__val">Rs 6,830</span>
+                  </li>
+                  <li class="rank__row">
+                    <span class="rank__pos">4</span>
+                    <span class="rank__who"><b>Salma Ansari</b><em>Neckline</em></span>
+                    <span class="rank__bar"><i style="width:61%"></i></span>
+                    <span class="rank__val">Rs 5,610</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="panel">
+                <div class="panel__head">
+                  <h4>Latest production entries</h4>
+                  <span class="panel__link">Live</span>
+                </div>
+                <ul class="feed">
+                  <li class="feed__row">
+                    <span class="feed__who">Lata Gaikwad</span>
+                    <span class="feed__what">Dupatta booti · 60 pcs, 1 reject</span>
+                    <span class="feed__amt">+Rs 2,360</span>
+                  </li>
+                  <li class="feed__row">
+                    <span class="feed__who">Imran Shaikh</span>
+                    <span class="feed__what">Blouse aari-work · 42 pcs, 3 reject</span>
+                    <span class="feed__amt">+Rs 3,315</span>
+                  </li>
+                  <li class="feed__row feed__row--adv">
+                    <span class="feed__who">Rukmini Bai</span>
+                    <span class="feed__what">Advance paid · Tue</span>
+                    <span class="feed__amt feed__amt--neg">−Rs 1,200</span>
+                  </li>
+                  <li class="feed__row">
+                    <span class="feed__who">Salma Ansari</span>
+                    <span class="feed__what">Kurti neckline · 28 pcs, 0 reject</span>
+                    <span class="feed__amt">+Rs 1,540</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 7. PRICING ============ -->
+    <section class="section pricing" id="pricing">
+      <div class="wrap pricing__wrap">
+        <div class="pricing__copy">
+          <p class="eyebrow eyebrow--on-dark">Pricing</p>
+          <h2 class="pricing__title">One plan. One number to remember.</h2>
+          <p class="pricing__lede">
+            One wrong payout a month — a rate misremembered, an advance forgotten — costs more than this.
+            KarigarBook pays for itself the first Saturday you don't overpay.
+          </p>
+          <ul class="pricing__roi">
+            <li>Fits units from 8 to 200 karigars</li>
+            <li>Unlimited work types &amp; payout sheets</li>
+            <li>Works on any Android phone, offline-friendly</li>
+          </ul>
+        </div>
+        <div class="plan">
+          <p class="plan__name">KarigarBook</p>
+          <p class="plan__price"><span class="plan__cur">Rs</span>499<span class="plan__per">/month</span></p>
+          <p class="plan__free">First 30 days free · no card</p>
+          <ul class="plan__list">
+            <li>Piece-rate ledger &amp; auto payout</li>
+            <li>Per-karigar output &amp; rejection rate</li>
+            <li>Weekly &amp; monthly payout sheets</li>
+            <li>Owner's dashboard</li>
+            <li>Add unlimited karigars</li>
+          </ul>
+          <a class="btn btn--primary btn--block" href="#" data-mock>Start 30-day free trial</a>
+          <p class="plan__foot">Cancel anytime. No lock-in.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 8. WHO IT'S FOR + FAQ ============ -->
+    <section class="section audience" id="audience">
+      <div class="wrap">
+        <p class="eyebrow eyebrow--center">Who it's for</p>
+        <h2 class="section__title">Built for the unit that pays by the piece.</h2>
+        <div class="who-grid">
+          <span class="who">Tailoring units</span>
+          <span class="who">Hand &amp; machine embroidery</span>
+          <span class="who">Aari &amp; zari workshops</span>
+          <span class="who">Handicraft &amp; artisan units</span>
+          <span class="who">Job-work contractors</span>
+          <span class="who">Karkhana owners</span>
+        </div>
+
+        <div class="faq">
+          <h3 class="faq__title">Questions owners ask</h3>
+          <details class="faq__item" open>
+            <summary>Do my karigars need to install anything?</summary>
+            <p>No. Only you, the owner, use KarigarBook. Karigars keep handing over bundles the way they always have — you log the count in seconds. Nothing changes on their side.</p>
+          </details>
+          <details class="faq__item">
+            <summary>What if the same karigar does three different work types?</summary>
+            <p>That's the point. Each work type has its own rate, and the payout sheet shows every line separately before it totals — aari-work at Rs 85, booti at Rs 40, and so on, all under one name.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Will it work without good internet in my unit?</summary>
+            <p>Yes. You can log production offline and it syncs when you're back on network. Payout sheets print from your phone, no signal needed.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ 9. FOOTER ============ -->
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <div class="footer__brand">
+        <span class="brand__word brand__word--foot">KarigarBook</span>
+        <p class="footer__tag">Piece-rate pay, done right.</p>
+      </div>
+      <div class="footer__meta">
+        <p class="footer__studio">A KARYA studio build</p>
+        <p class="footer__contact"><a href="mailto:sreeni.nintendo@gmail.com">sreeni.nintendo@gmail.com</a></p>
+        <p class="footer__fine">Demo dashboard uses illustrative figures. © 2026 KarigarBook.</p>
+      </div>
+    </div>
+    <div class="seam seam--foot" aria-hidden="true"></div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
