@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="KarigarBook — piece-rate pay, done right. A KARYA studio build.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2A1157"/>
+      <stop offset="0.55" stop-color="#4C1D95"/>
+      <stop offset="1" stop-color="#6D28D9"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FBFAF7"/>
+      <stop offset="1" stop-color="#F2EEF9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Running-stitch seam motif, top and bottom -->
+  <line x1="0" y1="70" x2="1200" y2="70" stroke="#E8B923" stroke-width="3" stroke-dasharray="12 10" opacity="0.55"/>
+  <line x1="0" y1="560" x2="1200" y2="560" stroke="#E8B923" stroke-width="3" stroke-dasharray="12 10" opacity="0.55"/>
+
+  <!-- KARYA wordmark, top-left -->
+  <text x="80" y="128" font-family="Georgia, 'Times New Roman', serif" font-size="30" letter-spacing="8" fill="#E4DEEE" font-weight="700">KARYA</text>
+  <text x="215" y="128" font-family="Arial, Helvetica, sans-serif" font-size="22" letter-spacing="2" fill="#B9A9E0">· ON THE BENCH</text>
+
+  <!-- Brand mark: stitched ledger card -->
+  <g transform="translate(80,190)">
+    <rect width="120" height="120" rx="26" fill="#6D28D9"/>
+    <rect x="32" y="24" width="56" height="72" rx="6" fill="#F7F5F0"/>
+    <line x1="46" y1="28" x2="46" y2="92" stroke="#6D28D9" stroke-width="3" stroke-linecap="round" stroke-dasharray="5 5"/>
+    <g stroke="#8B7FA8" stroke-width="3.5" stroke-linecap="round">
+      <line x1="55" y1="42" x2="80" y2="42"/>
+      <line x1="55" y1="55" x2="80" y2="55"/>
+      <line x1="55" y1="68" x2="80" y2="68"/>
+    </g>
+    <path d="M53 82 l6 6 l12 -14" fill="none" stroke="#E8B923" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Product name -->
+  <text x="230" y="270" font-family="Arial, Helvetica, sans-serif" font-size="88" font-weight="800" fill="#FFFFFF" letter-spacing="-1">KarigarBook</text>
+
+  <!-- Tagline -->
+  <text x="82" y="380" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700" fill="#F5F1FE">Piece-rate pay, <tspan fill="#E8B923">done right.</tspan></text>
+
+  <!-- Sub-line / audience -->
+  <text x="82" y="440" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="500" fill="#CBBEE8">Piece-rate payroll &amp; karigar payout for</text>
+  <text x="82" y="480" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="500" fill="#CBBEE8">tailoring, embroidery &amp; handicraft units.</text>
+
+  <!-- Payout chip, bottom-right -->
+  <g transform="translate(820,415)">
+    <rect width="300" height="96" rx="20" fill="url(#card)"/>
+    <text x="26" y="40" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#6D28D9">NET PAYABLE</text>
+    <text x="26" y="76" font-family="'Courier New', monospace" font-size="32" font-weight="700" fill="#1B1030">computed live ✓</text>
+  </g>
+</svg>

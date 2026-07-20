@@ -3,7 +3,7 @@
 A standalone marketing / explainer website for **KarigarBook** — a piece-rate
 payout ledger for tailoring, embroidery and handicraft units.
 
-> **Piece-rate pay, done right.** Rs 499/mo.
+> **Piece-rate pay, done right.** Subscription — pricing on discovery.
 
 This is **not** the product app. It is a single-page explainer designed to make
 the idea instantly clear to two readers: a non-technical Indian SMB (unit) owner,
@@ -27,7 +27,7 @@ payout (period) = Σ (qty − rejected_qty) × piece_rate  −  advances
 4. How it works — 4 steps, bundle to payout
 5. Features — piece-rate ledger, auto payout maths, per-karigar output, rejection rate, payout sheets, owner's dashboard
 6. Product preview — a CSS "screenshot" of the owner's dashboard with real Indian names, areas and rupee values
-7. Pricing — Rs 499/mo with the ROI line
+7. Pricing — subscription, pricing on discovery, with the ROI line
 8. Who it's for + a 3-question FAQ
 9. Footer — "A KARYA studio build", contact
 
